@@ -1,9 +1,7 @@
-var express = require('express');
-var router = express.Router();
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('shopperstop', { title: 'Search Results for shopperstop' });
-});
-
-module.exports = router;
+var express = require('express'); 
+const shopperstop_controlers= require('../contorllers/shopperstop'); 
+var router = express.Router(); 
+ 
+/* GET shopperstops */ 
+router.get('/', shopperstop_controlers.shopperstop_view_all_Page ); 
+module.exports = router; 
