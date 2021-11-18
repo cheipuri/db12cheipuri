@@ -3,10 +3,13 @@ extends layout
 block content 
   h1= title 
  
-  - let shopperstopid = toShow._id 
-  - let Itemname = toShow.Itemname  
-  - let shopperstopprice = toShow.price 
-  - let shopperstopQuantity  = toShow.Quantity  
+  if (toShow == null) 
+    h2 No instance to display  
+  else 
+    - let shopperstopid = toShow._id 
+    - let Itemname = toShow.Itemname  
+    - let shopperstopprice = toShow.price 
+    - let shopperstopQuantity  = toShow.Quantity  
   div 
     div.row 
       div(class='shopperstopAttr mr-3') Shopperstop ID is: 
