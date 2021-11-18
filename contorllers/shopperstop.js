@@ -38,9 +38,17 @@ exports.shopperstop_create_post = async function(req, res) {
 }; 
  
 // Handle shopperstop delete form on DELETE. 
-exports.shopperstop_delete = function(req, res) { 
-    res.send('NOT IMPLEMENTED: shopperstop delete DELETE ' + req.params.id); 
-}; 
+exports.shopperstop_delete = async function(req, res) { 
+    console.log("delete "  + req.params.id) 
+    try { 
+        result = await Shopperstop.findByIdAndDelete( req.params.id) 
+        console.log("Removed " + result) 
+        res.send(result) 
+    } catch (err) { 
+        res.status(500) 
+        res.send(`{"error": Error deleting ${err}}`); 
+    } 
+};  
  
 // Handle shopperstop update form on PUT. 
 exports.shopperstop_update_put =async function(req, res) { 
@@ -85,3 +93,27 @@ exports.shopperstop_view_all_Page = async function(req, res) {
         res.send(`{"error": ${err}}`); 
     }   
 };  
+
+exports.shopperstop_view_one_Page = async function(req, res) { 
+    console.log("single view for id "  + req.query.id) 
+    try{ 
+        result = await Shopperstop.findById( req.query.id) 
+        res.render('shopperstopdetail',  
+{ title: 'Shopperstop Detail', toShow: result }); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
+}; 
+
+exports.shopperstop_create_Page =  function(req, res) { 
+    console.log("create view") 
+    try{ 
+        res.render('shopperstopcreate', { title: 'Shopperstop Create'}); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
+}; 

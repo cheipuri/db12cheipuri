@@ -1,0 +1,22 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let shopperstopid = toShow._id 
+  - let Itemname = toShow.Itemname  
+  - let shopperstopprice = toShow.price 
+  - let shopperstopQuantity  = toShow.Quantity  
+  div 
+    div.row 
+      div(class='shopperstopAttr mr-3') Shopperstop ID is: 
+      div #{shopperstopid} 
+    div.row 
+      div(class='shopperstopAttr mr-3') Shopperstop Type is: 
+      div #{Itemname} 
+    div.row 
+      div(class='shopperstopAttr mr-3') Shopperstop Size is: 
+      div #{shopperstopprice} 
+    div.row 
+      div(class='shopperstopAttr mr-3') Shopperstop Cost is: 
+      div #{shopperstopQuantity} 
