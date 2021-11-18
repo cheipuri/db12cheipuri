@@ -117,3 +117,32 @@ exports.shopperstop_create_Page =  function(req, res) {
         res.send(`{'error': '${err}'}`); 
     } 
 }; 
+
+// Handle building the view for updating a Shopperstop. 
+// query provides the id 
+exports.shopperstop_update_Page =  async function(req, res) { 
+    console.log("update view for item "+req.query.id) 
+    try{ 
+        let result = await Shopperstop.findById(req.query.id) 
+        res.render('shopperstopupdate', { title: 'Shopperstop Update', toShow: result }); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
+}; 
+
+// Handle a delete one view with id from query 
+exports.shopperstop_delete_Page = async function(req, res) { 
+    console.log("Delete view for id "  + req.query.id) 
+    try{ 
+        result = await Shopperstop.findById(req.query.id) 
+        res.render('shopperstopdelete', { title: 'Shopperstop Delete', toShow: 
+result }); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
+}; 
+ 
