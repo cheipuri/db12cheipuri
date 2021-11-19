@@ -6,6 +6,7 @@ block content
   if (toShow == null) 
     h2 No instance to update 
   else
+    - let destination = `dispatch(\"/shopperstops/update?id=${item._id}\")` 
     - let shopperstopid = toShow._id
     - let Itemname = toShow.Itemname 
     - let Quantity = toShow.Quantity 
