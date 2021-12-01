@@ -14,10 +14,10 @@ const secured = (req, res, next) => {
  
 /* GET shopperstops */ 
 router.get('/', shopperstop_controlers.shopperstop_view_all_Page );
-router.get('/create', shopperstop_controlers.shopperstop_create_Page); 
+router.get('/create', secured, shopperstop_controlers.shopperstop_create_Page); 
 router.get('/detail', shopperstop_controlers.shopperstop_view_one_Page);  
 /* GET create update page */ 
-router.get('/update', secured, shopperstop_controlers.shopperstop_update_Page); 
-router.get('/delete', shopperstop_controlers.shopperstop_delete_Page); 
+router.get('/update', secured, shopperstop_controlers.shopperstop_update_Page);
+router.get('/delete', secured, shopperstop_controlers.shopperstop_delete_Page); 
  
 module.exports = router; 
