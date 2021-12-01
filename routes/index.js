@@ -2,6 +2,8 @@ var express = require('express');
 var passport = require('passport'); 
 var router = express.Router(); 
 var Account = require('../models/account'); 
+
+
  
 router.get('/', function (req, res) { 
     res.render('index', { title: 'Shopperstop App', user : req.user }); 
