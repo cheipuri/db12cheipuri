@@ -6,7 +6,7 @@ block content
   if (toShow == null) 
     h2 No instance to update 
   else
-    - let destination = `dispatch(\"/shopperstops/update?id=${item._id}\")` 
+  
     - let shopperstopid = toShow._id
     - let Itemname = toShow.Itemname 
     - let Quantity = toShow.Quantity 
@@ -15,7 +15,7 @@ block content
   div.row(class='mb-2') 
     div.mr-1 ID is 
     div #{shopperstopid} 
-    - let actionid = "/resource/shopperstops/" + shopperstopid 
+    - let actionid = "/resource/shopperstop/" + shopperstopid 
     form(id='ShopperstopForm', action= actionid, method="PUT") 
         div.form-group 
             label.shopperstopAttr(for='Itemname') Item name 
